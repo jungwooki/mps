@@ -166,6 +166,7 @@
                 </div>
                 <div class="hidden lg:block">
                     <div class="ml-10 flex items-center space-x-8">
+                        <a href="#team" class="nav-link text-[15px] text-gray-600 hover:text-blue-600 font-semibold transition">팀</a>
                         <a href="#problem" class="nav-link text-[15px] text-gray-600 hover:text-blue-600 font-semibold transition">문제점</a>
                         <a href="#target" class="nav-link text-[15px] text-gray-600 hover:text-blue-600 font-semibold transition">대상</a>
                         <a href="#process" class="nav-link text-[15px] text-gray-600 hover:text-blue-600 font-semibold transition">프로세스</a>
@@ -185,6 +186,7 @@
         <!-- Mobile Menu -->
         <div class="hidden lg:hidden bg-white border-t border-gray-100 shadow-xl absolute w-full" id="mobile-menu">
             <div class="px-5 pt-4 pb-6 space-y-1">
+                <a href="#team" class="mobile-link block px-4 py-3 rounded-xl text-[15px] font-semibold text-gray-700 hover:bg-gray-50">팀</a>
                 <a href="#problem" class="mobile-link block px-4 py-3 rounded-xl text-[15px] font-semibold text-gray-700 hover:bg-gray-50">문제점</a>
                 <a href="#target" class="mobile-link block px-4 py-3 rounded-xl text-[15px] font-semibold text-gray-700 hover:bg-gray-50">대상</a>
                 <a href="#platform" class="mobile-link block px-4 py-3 rounded-xl text-[15px] font-semibold text-gray-700 hover:bg-gray-50">대시보드</a>
@@ -194,7 +196,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section (Loads Immediately with .fade-in-up) -->
+    <!-- Hero Section -->
     <header class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-white">
         <div class="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-[800px] h-[800px] bg-gradient-to-br from-blue-50 to-indigo-50/50 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
         <div class="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-[600px] h-[600px] bg-gradient-to-tr from-emerald-50 to-cyan-50/50 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
@@ -206,13 +208,16 @@
             </div>
             
             <h1 class="text-4xl md:text-5xl lg:text-[56px] font-extrabold text-gray-900 tracking-tight mb-6 leading-[1.25] break-keep fade-in-up delay-100">
-                재능이<br>
-                <span class="text-gradient"> 낙오되지 않도록</span>
+                MPS<br>
+                <span class="text-gradient"> 유망주 성장관리의 새로운 기준</span>
             </h1>
             
             <p class="mt-6 max-w-2xl mx-auto text-[17px] md:text-[19px] text-gray-500 font-medium leading-[1.6] break-keep fade-in-up delay-200">
-                AI 기반<strong class="text-gray-800"> 유소년선수 관리 플랫폼</strong><br>
-                멘탈(M), 부상(P), 성장유형(S) 통합 평가
+                AI기반<strong class="text-gray-800"> 스포츠과학 x 스포츠한의학</strong><br>
+                <strong class="text-gray-800">MPS System</strong><br>
+                Mental · Physical · Strength<br><br>
+                멘탈, 부상 리스크, 성장 단계를 통합 분석하여<br>
+                유소년 유망주의 성장 잠재능력을 체계적으로 관리합니다.
             </p>
             
             <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4 fade-in-up delay-300">
@@ -226,7 +231,58 @@
         </div>
     </header>
 
-    <!-- Why Talents Fade (The Problem) - Scroll Reveal Applied -->
+    <!-- NEW SECTION: Expert Team -->
+    <section id="team" class="py-24 bg-gray-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-up">
+                <span class="text-blue-600 font-bold bg-blue-50 px-3 py-1 rounded-md text-[13px] tracking-wide">MPS Expert Team</span>
+                <h2 class="text-2xl md:text-[36px] font-extrabold text-gray-900 mt-5 mb-4 tracking-tight leading-snug">스포츠과학 · 스포츠의학 · AI 전문가들이<br>유소년 성장관리 시스템 MPS를 설계했습니다</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- CEO -->
+                <div class="card-soft p-8 bg-white text-center border border-gray-100 shadow-lg reveal-up reveal-delay-100 group">
+                    <div class="w-32 h-32 mx-auto rounded-full overflow-hidden mb-6 border-4 border-gray-50 shadow-sm group-hover:scale-105 transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=256" alt="이정욱 CEO" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">이정욱 <span class="text-[15px] font-bold text-blue-600 ml-1">CEO</span></h3>
+                    <p class="text-[14px] text-gray-500 font-medium mb-5 pb-5 border-b border-gray-100">해온한의원 스포츠센터장</p>
+                    <ul class="text-[13.5px] text-gray-600 font-medium space-y-2.5 text-left bg-gray-50 p-5 rounded-xl">
+                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-blue-500 mt-0.5"></i> <span class="leading-snug">FIFA 축구의학수료</span></li>
+                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-blue-500 mt-0.5"></i> <span class="leading-snug">공인팀닥터</span></li>
+                    </ul>
+                </div>
+
+                <!-- CMO (Highlighted) -->
+                <div class="card-soft p-8 bg-white text-center border-2 border-blue-100 shadow-xl reveal-up reveal-delay-200 group transform md:-translate-y-4">
+                    <div class="w-32 h-32 mx-auto rounded-full overflow-hidden mb-6 border-4 border-blue-50 shadow-sm group-hover:scale-105 transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=256" alt="김학인 CMO" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">김학인 <span class="text-[15px] font-bold text-blue-600 ml-1">CMO</span></h3>
+                    <p class="text-[14px] text-gray-500 font-medium mb-5 pb-5 border-b border-gray-100">리본코퍼레이션랩 스포츠마케팅연구소장</p>
+                    <ul class="text-[13.5px] text-gray-700 font-medium space-y-2.5 text-left bg-blue-50 p-5 rounded-xl">
+                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-blue-600 mt-0.5"></i> <span class="leading-snug">명지대학교 미래융합대학 교수</span></li>
+                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-blue-600 mt-0.5"></i> <span class="leading-snug">유소년축구 대회 운영 전문가</span></li>
+                    </ul>
+                </div>
+
+                <!-- CTO -->
+                <div class="card-soft p-8 bg-white text-center border border-gray-100 shadow-lg reveal-up reveal-delay-300 group">
+                    <div class="w-32 h-32 mx-auto rounded-full overflow-hidden mb-6 border-4 border-gray-50 shadow-sm group-hover:scale-105 transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=256" alt="이준우 CTO" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">이준우 <span class="text-[15px] font-bold text-blue-600 ml-1">CTO</span></h3>
+                    <p class="text-[14px] text-gray-500 font-medium mb-5 pb-5 border-b border-gray-100">무신사 개발팀장</p>
+                    <ul class="text-[13.5px] text-gray-600 font-medium space-y-2.5 text-left bg-gray-50 p-5 rounded-xl">
+                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-blue-500 mt-0.5"></i> <span class="leading-snug">AI, 플랫폼 개발 디렉팅 3회</span></li>
+                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-blue-500 mt-0.5"></i> <span class="leading-snug">리디, 지그재그, 카카오 출신</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Talents Fade (The Problem) -->
     <section id="problem" class="py-24 bg-white border-t border-gray-100">
         <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal-up">
@@ -525,7 +581,7 @@
     </section>
 
     <!-- Testimonials -->
-    <section id="testimonials" class="py-24 bg-white border-b border-gray-100 overflow-hidden">
+    <section id="testimonials" class="py-24 bg-gray-50 border-b border-gray-100 overflow-hidden">
         <div class="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal-up">
                 <span class="text-emerald-600 font-bold bg-emerald-50 px-3 py-1 rounded-md text-[13px] tracking-wide">Testimonials</span>
