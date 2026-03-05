@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MPS PlayMetrics | 데이터 기반 유소년 스포츠 성장 관리 솔루션</title>
     
+    <!-- Open Graph (카카오톡, 슬랙 등 공유 미리보기 설정) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="MPS PlayMetrics">
+    <meta property="og:title" content="MPS PlayMetrics | 유소년 유망주 성장관리의 새로운 기준">
+    <meta property="og:description" content="AI 기반 스포츠과학 x 스포츠한의학. 멘탈, 부상 리스크, 성장 단계를 통합 분석하여 선수의 잠재능력을 체계적으로 관리합니다.">
+    <!-- 아래 content 부분에 미리보기로 띄울 깔끔한 이미지(1200x630)의 URL을 넣어주세요 -->
+    <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200&h=630">
+    <meta property="og:url" content="https://playmetrics.vercel.app"> <!-- 실제 Vercel 주소로 변경해주세요 -->
+
+    <!-- Twitter Card (트위터 등 기타 플랫폼 공유 미리보기 설정) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MPS PlayMetrics">
+    <meta name="twitter:description" content="데이터 기반 유소년 스포츠 성장 관리 솔루션">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200&h=630">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -161,8 +176,8 @@
         <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 md:h-20">
                 <div class="flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <div class="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold text-base shadow-sm">M</div>
-                    <span class="font-extrabold text-xl tracking-tight text-gray-900">MPS <span class="font-medium text-gray-500">PlayMetrics</span></span>
+                    <img src="assets/logo.png" alt="MPS PlayMetrics 로고" class="h-8">
+                    <span class="font-extrabold text-xl tracking-tight text-gray-900"> <span class="font-medium text-gray-500"></span></span>
                 </div>
                 <div class="hidden lg:block">
                     <div class="ml-10 flex items-center space-x-8">
@@ -236,7 +251,8 @@
         <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal-up">
                 <span class="text-blue-600 font-bold bg-blue-50 px-3 py-1 rounded-md text-[13px] tracking-wide">MPS Expert Team</span>
-                <h2 class="text-2xl md:text-[36px] font-extrabold text-gray-900 mt-5 mb-4 tracking-tight leading-snug">스포츠과학 · 스포츠의학 · AI 전문가들이<br>유소년 성장관리 시스템 MPS를 설계했습니다</h2>
+                <h2 class="text-2xl md:text-[36px] font-extrabold text-gray-900 mt-5 mb-4 tracking-tight leading-snug">스포츠과학 X 스포츠의학 X AI
+                <br>Top Class Heroes</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -246,11 +262,11 @@
                         <img src="images/team1.jpg" alt="이정욱 CEO" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-1">이정욱 <span class="text-[15px] font-bold text-blue-600 ml-1">CEO</span></h3>
-                    <p class="text-[14px] text-gray-500 font-medium mb-5 pb-5 border-b border-gray-100">해온한의원 스포츠센터장</p>
+                    <p class="text-[14px] text-gray-500 font-medium mb-5 pb-5 border-b border-gray-100">FIFA Football Medicine Diploma 한의사 최초수료</p>
                     <ul class="text-[13.5px] text-gray-600 font-medium space-y-2.5 text-left bg-gray-50 p-5 rounded-xl">
-                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-blue-500 mt-0.5"></i> <span class="leading-snug">FIFA 축구의학 한의사최초수료</span></li>
-                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-blue-500 mt-0.5"></i> <span class="leading-snug">스포츠한의 공인팀닥터</span></li>
+                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-blue-500 mt-0.5"></i> <span class="leading-snug">스포츠한의 공인 팀닥터</span></li>
                         <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-blue-500 mt-0.5"></i> <span class="leading-snug">축구선수 학부모</span></li>
+                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-blue-500 mt-0.5"></i> <span class="leading-snug">해온한의원 스포츠센터장</span></li>
                     </ul>
                 </div>
 
@@ -260,11 +276,11 @@
                         <img src="images/team2.jpg" alt="김학인 CMO" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-1">김학인 <span class="text-[15px] font-bold text-blue-600 ml-1">CMO</span></h3>
-                    <p class="text-[14px] text-gray-500 font-medium mb-5 pb-5 border-b border-gray-100">리본코퍼레이션랩 스포츠마케팅연구소장</p>
+                    <p class="text-[14px] text-gray-500 font-medium mb-5 pb-5 border-b border-gray-100">20년 축구 현장 운영 스페셜리스트</p>
                     <ul class="text-[13.5px] text-gray-700 font-medium space-y-2.5 text-left bg-blue-50 p-5 rounded-xl">
                         <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-blue-600 mt-0.5"></i> <span class="leading-snug">명지대학교 미래융합대학교수</span></li>
-                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-blue-600 mt-0.5"></i> <span class="leading-snug">유소년축구대회운영 전문가</span></li>
-                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-blue-600 mt-0.5"></i> <span class="leading-snug">20년이상 축구현장 행정가</span></li>
+                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-blue-600 mt-0.5"></i> <span class="leading-snug">유소년축구대회운영 디렉터</span></li>
+                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-blue-600 mt-0.5"></i> <span class="leading-snug">리본코퍼레이션랩 대표</span></li>
                     </ul>
                 </div>
 
@@ -274,11 +290,11 @@
                         <img src="images/team3.jpg" alt="이준우 CTO" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-1">이준우 <span class="text-[15px] font-bold text-blue-600 ml-1">CTO</span></h3>
-                    <p class="text-[14px] text-gray-500 font-medium mb-5 pb-5 border-b border-gray-100">Musinsa 개발팀장</p>
+                    <p class="text-[14px] text-gray-500 font-medium mb-5 pb-5 border-b border-gray-100">전 카카오 · 리디 · 지그재그</p>
                     <ul class="text-[13.5px] text-gray-600 font-medium space-y-2.5 text-left bg-gray-50 p-5 rounded-xl">
                         <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-blue-500 mt-0.5"></i> <span class="leading-snug">AI 웹기반 플랫폼 개발 디렉팅 3회</span></li>
                         <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-blue-500 mt-0.5"></i> <span class="leading-snug">웹서비스 연계 개발 경력 UI/UX 개발 연계</span></li>
-                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-blue-500 mt-0.5"></i> <span class="leading-snug">전 리디, 지그재그, 카카오 개발</span></li>
+                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-blue-500 mt-0.5"></i> <span class="leading-snug">현 M사 개발팀장</span></li>
                     </ul>
                 </div>
             </div>
@@ -518,7 +534,7 @@
                                 <span class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span>
                                 <span class="text-[12px] font-bold text-gray-600 tracking-wide uppercase">Live Demo</span>
                             </div>
-                            <div id="viz-container" class="w-full h-[400px] flex items-center justify-center mt-4 relative z-0">
+                            <div id="viz-container" class="w-full h-[320px] md:h-[400px] flex items-center justify-center mt-4 relative z-0">
                                 <!-- Canvas injected here -->
                             </div>
                         </div>
@@ -592,8 +608,8 @@
                 <p class="text-[17px] text-gray-500 font-medium">현역 프로선수부터 지도자, 학부모까지. MPS가 만들어낸 진짜 변화를 확인하세요.</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- 1 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 1 (학부모) -->
                 <div class="card-soft p-7 bg-white flex flex-col h-full hover:shadow-lg transition reveal-up reveal-delay-100">
                     <div class="text-emerald-500 mb-4 text-xl"><i class="fa-solid fa-quote-left"></i></div>
                     <h4 class="text-[16px] font-bold text-gray-900 mb-3 leading-snug break-keep">"객관적 데이터에 갈증이 있는 팀에게 추천합니다"</h4>
@@ -604,8 +620,8 @@
                     </div>
                 </div>
 
-                <!-- 2 -->
-                <div class="card-soft p-7 bg-blue-50/50 flex flex-col h-full border border-blue-100 hover:shadow-lg transition transform lg:translate-y-4 reveal-up reveal-delay-200">
+                <!-- 2 (지도자) -->
+                <div class="card-soft p-7 bg-blue-50/50 flex flex-col h-full border border-blue-100 hover:shadow-lg transition reveal-up reveal-delay-200">
                     <div class="text-blue-500 mb-4 text-xl"><i class="fa-solid fa-quote-left"></i></div>
                     <h4 class="text-[16px] font-bold text-gray-900 mb-3 leading-snug break-keep">"막연한 감에 의존하던 로테이션, 데이터로 확신을 얻었습니다"</h4>
                     <p class="text-[14px] text-gray-600 mb-6 leading-relaxed font-medium flex-1 break-keep">이전에는 선수의 피로도와 한계를 감독의 경험에 의존했습니다. MPS 도입 후 부상 위험도(OTS)에 따라 로테이션을 돌리니 장기 부상자가 눈에 띄게 줄었습니다.</p>
@@ -615,19 +631,8 @@
                     </div>
                 </div>
 
-                <!-- 3 -->
-                <div class="card-soft p-7 bg-gray-900 text-white flex flex-col h-full hover:shadow-xl transition reveal-up reveal-delay-300">
-                    <div class="text-gray-500 mb-4 text-xl"><i class="fa-solid fa-quote-left"></i></div>
-                    <h4 class="text-[16px] font-bold text-white mb-3 leading-snug break-keep">"프로 무대로 향하는 확실한 지도는 바로 데이터입니다"</h4>
-                    <p class="text-[14px] text-gray-300 mb-6 leading-relaxed font-medium flex-1 break-keep">유스 시절, 몸이 크는 속도가 달라 슬럼프를 겪을 뻔했습니다. 성장 단계에 맞춘 피지컬과 멘탈 관리가 저를 지탱해 주었고 프로에 안착할 수 있었습니다.</p>
-                    <div class="mt-auto">
-                        <div class="font-bold text-white text-[14px] mb-2">현역 K리그1 프로선수</div>
-                        <div class="inline-block px-3 py-1.5 bg-gray-800 border border-gray-700 text-gray-300 text-[12px] font-bold rounded-lg w-full text-center">유스 출신 / 3년간 성장 데이터 추적</div>
-                    </div>
-                </div>
-
-                <!-- 4 -->
-                <div class="card-soft p-7 bg-white flex flex-col h-full hover:shadow-lg transition transform lg:translate-y-4 reveal-up reveal-delay-400">
+                <!-- 3 (학부모) -->
+                <div class="card-soft p-7 bg-white flex flex-col h-full hover:shadow-lg transition reveal-up reveal-delay-300">
                     <div class="text-emerald-500 mb-4 text-xl"><i class="fa-solid fa-quote-left"></i></div>
                     <h4 class="text-[16px] font-bold text-gray-900 mb-3 leading-snug break-keep">"성장 로드맵을 확인하고 조급함을 버렸습니다"</h4>
                     <p class="text-[14px] text-gray-600 mb-6 leading-relaxed font-medium flex-1 break-keep">아이의 성장 속도를 몰라 막연히 불안했습니다. 생물학적 나이에 맞춘 경로를 데이터로 확인하고 나니, 장기적인 관점에서 아이를 응원하게 되었습니다.</p>
@@ -637,7 +642,7 @@
                     </div>
                 </div>
 
-                <!-- 5 -->
+                <!-- 4 (지도자) -->
                 <div class="card-soft p-7 bg-blue-50/50 flex flex-col h-full border border-blue-100 hover:shadow-lg transition reveal-up reveal-delay-100">
                     <div class="text-blue-500 mb-4 text-xl"><i class="fa-solid fa-quote-left"></i></div>
                     <h4 class="text-[16px] font-bold text-gray-900 mb-3 leading-snug break-keep">"유망주가 소외되지 않는 맞춤형 훈련을 설계합니다"</h4>
@@ -648,8 +653,8 @@
                     </div>
                 </div>
 
-                <!-- 6 -->
-                <div class="card-soft p-7 bg-white flex flex-col h-full hover:shadow-lg transition transform lg:translate-y-4 reveal-up reveal-delay-200">
+                <!-- 5 (학부모) -->
+                <div class="card-soft p-7 bg-white flex flex-col h-full hover:shadow-lg transition reveal-up reveal-delay-200">
                     <div class="text-emerald-500 mb-4 text-xl"><i class="fa-solid fa-quote-left"></i></div>
                     <h4 class="text-[16px] font-bold text-gray-900 mb-3 leading-snug break-keep">"객관적 데이터 관리에 굳건한 신뢰가 생겼습니다"</h4>
                     <p class="text-[14px] text-gray-600 mb-6 leading-relaxed font-medium flex-1 break-keep">잦은 부상으로 고생하던 아이가 위험도 관리를 받으며 컨디션이 좋아졌습니다. 객관적인 데이터로 훈련 강도를 설명해 주시니 마음이 든든합니다.</p>
@@ -659,25 +664,14 @@
                     </div>
                 </div>
 
-                <!-- 7 -->
-                <div class="card-soft p-7 bg-gray-900 text-white flex flex-col h-full hover:shadow-xl transition reveal-up reveal-delay-300">
-                    <div class="text-gray-500 mb-4 text-xl"><i class="fa-solid fa-quote-left"></i></div>
-                    <h4 class="text-[16px] font-bold text-white mb-3 leading-snug break-keep">"재능을 100% 발휘하게 해주는 최고의 무기"</h4>
-                    <p class="text-[14px] text-gray-300 mb-6 leading-relaxed font-medium flex-1 break-keep">프로와 아마추어의 가장 큰 차이는 자신의 몸을 객관적으로 파악하느냐에 있습니다. 체계적인 예측 시스템은 선수 생명을 가장 길게 지켜줄 것입니다.</p>
-                    <div class="mt-auto">
-                        <div class="font-bold text-white text-[14px] mb-2">해외파 현역 프로선수</div>
-                        <div class="inline-block px-3 py-1.5 bg-gray-800 border border-gray-700 text-gray-300 text-[12px] font-bold rounded-lg w-full text-center">유럽 무대 활동 / 자기관리 지표 최고점</div>
-                    </div>
-                </div>
-
-                <!-- 8 -->
-                <div class="card-soft p-7 bg-white flex flex-col h-full hover:shadow-lg transition transform lg:translate-y-4 reveal-up reveal-delay-400">
-                    <div class="text-emerald-500 mb-4 text-xl"><i class="fa-solid fa-quote-left"></i></div>
+                <!-- 6 (지도자) -->
+                <div class="card-soft p-7 bg-blue-50/50 flex flex-col h-full border border-blue-100 hover:shadow-lg transition reveal-up reveal-delay-300">
+                    <div class="text-blue-500 mb-4 text-xl"><i class="fa-solid fa-quote-left"></i></div>
                     <h4 class="text-[16px] font-bold text-gray-900 mb-3 leading-snug break-keep">"학부모님과의 소통이 투명하고 단단해졌습니다"</h4>
                     <p class="text-[14px] text-gray-600 mb-6 leading-relaxed font-medium flex-1 break-keep">직감이 아닌 전문적인 데이터 리포트를 보여드리며 상담합니다. 객관적 피드백을 제공하니 팀 운영에 대한 학부모님들의 깊은 신뢰가 쌓였습니다.</p>
                     <div class="mt-auto">
                         <div class="font-bold text-gray-900 text-[14px] mb-2">초등 엘리트 축구클럽 감독</div>
-                        <div class="inline-block px-3 py-1.5 bg-gray-50 border border-gray-200 text-gray-700 text-[12px] font-bold rounded-lg w-full text-center">U-12 20명 / 분기별 학부모 상담 100% 활용</div>
+                        <div class="inline-block px-3 py-1.5 bg-blue-100 text-blue-800 text-[12px] font-bold rounded-lg w-full text-center">U-12 20명 / 분기별 학부모 상담 100% 활용</div>
                     </div>
                 </div>
             </div>
@@ -838,6 +832,81 @@
         </div>
     </section>
 
+    <!-- TEAMS (R&D / Advisor) Section -->
+    <section id="teams" class="py-24 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-up">
+                <span class="text-blue-600 font-bold bg-blue-50 px-3 py-1 rounded-md text-[13px] tracking-wide">TEAMS</span>
+                <h2 class="text-3xl md:text-[36px] font-extrabold text-gray-900 mt-5 mb-4 tracking-tight">R&D and Advisors</h2>
+            </div>
+
+            <!-- R&D -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-gray-900 mb-8 border-l-4 border-blue-600 pl-4 reveal-up">R&D</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- 민은경 -->
+                    <div class="card-soft p-6 bg-gray-50 reveal-up">
+                        <h4 class="text-lg font-bold text-gray-900 mb-1">민은경 <span class="text-[14px] text-gray-500 font-medium">MD.DKM</span></h4>
+                        <ul class="text-[14px] text-gray-600 space-y-1.5 mt-4">
+                            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 text-[10px]">●</span> <span class="leading-snug">한방내과 전문의</span></li>
+                            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 text-[10px]">●</span> <span class="leading-snug">해온한의원 동탄센터 대표</span></li>
+                            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 text-[10px]">●</span> <span class="leading-snug">스포츠한의 의무지원팀장</span></li>
+                        </ul>
+                    </div>
+                    <!-- 정지은 -->
+                    <div class="card-soft p-6 bg-gray-50 reveal-up reveal-delay-100">
+                        <h4 class="text-lg font-bold text-gray-900 mb-1">정지은 <span class="text-[14px] text-gray-500 font-medium">MD.DKM</span></h4>
+                        <ul class="text-[14px] text-gray-600 space-y-1.5 mt-4">
+                            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 text-[10px]">●</span> <span class="leading-snug">해온한의원 신도림스포츠센터</span></li>
+                            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 text-[10px]">●</span> <span class="leading-snug">한방소아청소년과 전문의</span></li>
+                            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 text-[10px]">●</span> <span class="leading-snug">전 대전대 한의과대학 최연소 교수</span></li>
+                        </ul>
+                    </div>
+                    <!-- 한유경 -->
+                    <div class="card-soft p-6 bg-gray-50 reveal-up reveal-delay-200">
+                        <h4 class="text-lg font-bold text-gray-900 mb-1">한유경 <span class="text-[14px] text-gray-500 font-medium">MD.DKM</span></h4>
+                        <ul class="text-[14px] text-gray-600 space-y-1.5 mt-4">
+                            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 text-[10px]">●</span> <span class="leading-snug">해온한의원 신도림스포츠센터</span></li>
+                            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 text-[10px]">●</span> <span class="leading-snug">스포츠한의 공인팀닥터</span></li>
+                            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5 text-[10px]">●</span> <span class="leading-snug">미국근골격계초음파(RMSK) 공인전문가</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advisor -->
+            <div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-8 border-l-4 border-emerald-500 pl-4 reveal-up">Advisor</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- 최광원 -->
+                    <div class="card-soft p-6 bg-white border border-gray-200 reveal-up">
+                        <h4 class="text-lg font-bold text-gray-900 mb-1">최광원</h4>
+                        <ul class="text-[14px] text-gray-600 space-y-1.5 mt-4">
+                            <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5 text-[10px]">●</span> <span class="leading-snug">현 서울대동초등학교 축구부 감독</span></li>
+                            <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5 text-[10px]">●</span> <span class="leading-snug">전 KFA 초등분과위원장</span></li>
+                        </ul>
+                    </div>
+                    <!-- 김로한 -->
+                    <div class="card-soft p-6 bg-white border border-gray-200 reveal-up reveal-delay-100">
+                        <h4 class="text-lg font-bold text-gray-900 mb-1">김로한</h4>
+                        <ul class="text-[14px] text-gray-600 space-y-1.5 mt-4">
+                            <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5 text-[10px]">●</span> <span class="leading-snug">현 대한체육회 스포츠개혁위원장</span></li>
+                            <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5 text-[10px]">●</span> <span class="leading-snug">국민대학교 객원교수</span></li>
+                        </ul>
+                    </div>
+                    <!-- 이원재 -->
+                    <div class="card-soft p-6 bg-white border border-gray-200 reveal-up reveal-delay-200">
+                        <h4 class="text-lg font-bold text-gray-900 mb-1">이원재</h4>
+                        <ul class="text-[14px] text-gray-600 space-y-1.5 mt-4">
+                            <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5 text-[10px]">●</span> <span class="leading-snug">전 가천대학교 IT 융합대학교수</span></li>
+                            <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5 text-[10px]">●</span> <span class="leading-snug">가천대학교 창업재원센터장</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact / CTA -->
     <section id="contact" class="py-24 md:py-32 bg-gray-900 relative overflow-hidden">
         <div class="absolute inset-0 z-0 opacity-20" style="background-image: radial-gradient(#94a3b8 1px, transparent 1px); background-size: 24px 24px;"></div>
@@ -864,12 +933,11 @@
                 <div class="lg:col-span-4 flex flex-col justify-between">
                     <div>
                         <div class="flex items-center gap-2 mb-4">
-                            <div class="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center text-xs font-bold text-white">M</div>
-                            <span class="font-extrabold text-xl text-gray-900 tracking-tight">PlayMetrics</span>
+                            <img src="assets/logo.png" class="h-8 w-16" alt="MPS 로고">
                         </div>
                         <p class="text-[14px] font-bold text-gray-800 mb-1">(주)주니어골든에이지</p>
-                        <p class="text-[13px] font-medium text-gray-500 mb-1">사업자등록번호: 000-00-00000 | 대표: 이정욱</p>
-                        <p class="text-[13px] font-medium text-gray-500 mb-1">통신판매업신고: 제2026-서울구로-0000호</p>
+                        <p class="text-[13px] font-medium text-gray-500 mb-1">사업자등록번호: 721-86-03995 | 대표: 이정욱</p>
+                        <p class="text-[13px] font-medium text-gray-500 mb-1"></p>
                         <p class="text-[13px] font-medium text-gray-500"><i class="fa-solid fa-location-dot text-gray-400 mr-1"></i> 서울시 구로구 새말로 97 1층 47호</p>
                     </div>
                 </div>
@@ -913,6 +981,7 @@
                         text: "특정 선수의 현재 상태를 팀 평균, 전국 평균, 최상위팀 평균과 비교하여 강점과 보완점을 한눈에 확인합니다.",
                         chartType: "radar",
                         renderChart: (ctx) => {
+                            const isMobile = window.innerWidth < 768;
                             return new Chart(ctx, {
                                 type: 'radar',
                                 data: {
@@ -925,8 +994,35 @@
                                 },
                                 options: {
                                     responsive: true, maintainAspectRatio: false,
-                                    scales: { r: { min: 0, max: 5, stepSize: 1, pointLabels: { font: { family: 'Pretendard', size: 12, weight: '600' }, color: '#4b5563' }, grid: {color: '#e2e8f0'}, angleLines: {color: '#e2e8f0'} } },
-                                    plugins: { legend: { position: 'bottom', labels: { usePointStyle: true, font: {family: 'Pretendard'}, color: '#4b5563' } } }
+                                    layout: { padding: isMobile ? 5 : 10 },
+                                    scales: { 
+                                        r: { 
+                                            min: 0, max: 5, stepSize: 1, 
+                                            pointLabels: { 
+                                                font: { family: 'Pretendard', size: isMobile ? 10 : 12, weight: '600' }, 
+                                                color: '#4b5563',
+                                                padding: isMobile ? 6 : 12 
+                                            }, 
+                                            grid: {color: '#e2e8f0'}, 
+                                            angleLines: {color: '#e2e8f0'},
+                                            ticks: {
+                                                backdropColor: 'transparent',
+                                                font: { size: isMobile ? 9 : 10 }
+                                            }
+                                        } 
+                                    },
+                                    plugins: { 
+                                        legend: { 
+                                            position: 'bottom', 
+                                            labels: { 
+                                                usePointStyle: true, 
+                                                boxWidth: isMobile ? 8 : 12,
+                                                padding: isMobile ? 12 : 20,
+                                                font: {family: 'Pretendard', size: isMobile ? 11 : 12}, 
+                                                color: '#4b5563' 
+                                            } 
+                                        } 
+                                    }
                                 }
                             });
                         }
@@ -1015,10 +1111,11 @@
                         text: "초음파 및 검진 데이터를 기반으로 각 부위의 피로도와 부상 위험을 점수화합니다. (높을수록 위험)",
                         chartType: "radar",
                         renderChart: (ctx) => {
+                            const isMobile = window.innerWidth < 768;
                             return new Chart(ctx, {
                                 type: 'radar',
                                 data: {
-                                    labels: ['허리', '골반', '대퇴부', '무릎(슬개건)', '하퇴부', '발목'],
+                                    labels: ['허리', '골반', '대퇴부', ['무릎', '(슬개건)'], '하퇴부', '발목'],
                                     datasets: [{
                                         label: '부상 위험도 (10점 만점)',
                                         data: [3, 4, 7, 9, 5, 6],
@@ -1029,7 +1126,23 @@
                                 },
                                 options: {
                                     responsive: true, maintainAspectRatio: false,
-                                    scales: { r: { min: 0, max: 10, stepSize: 2, pointLabels: { font: { family: 'Pretendard', size: 12, weight: '600' }, color: '#4b5563' }, grid: {color: '#e2e8f0'}, angleLines: {color: '#e2e8f0'} } },
+                                    layout: { padding: isMobile ? 5 : 10 },
+                                    scales: { 
+                                        r: { 
+                                            min: 0, max: 10, stepSize: 2, 
+                                            pointLabels: { 
+                                                font: { family: 'Pretendard', size: isMobile ? 10 : 12, weight: '600' }, 
+                                                color: '#4b5563',
+                                                padding: isMobile ? 6 : 12
+                                            }, 
+                                            grid: {color: '#e2e8f0'}, 
+                                            angleLines: {color: '#e2e8f0'},
+                                            ticks: {
+                                                backdropColor: 'transparent',
+                                                font: { size: isMobile ? 9 : 10 }
+                                            }
+                                        } 
+                                    },
                                     plugins: { legend: { display: false } }
                                 }
                             });
