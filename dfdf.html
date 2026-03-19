@@ -1,0 +1,504 @@
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유럽 유소년 축구 바이오밴딩 적용 사례</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Chosen Palette: Energetic & Playful (Deep Navy, Vibrant Teal, Warm Amber, Slate) -->
+    <!-- Application Structure Plan: A single-page scrolling infographic dashboard. The architecture uses a top-down narrative flow: Introduction -> Core Problem (Visualized) -> Tier 1 (Systematization: UK/NL) -> Tier 2 (Protection & Routine: BE/DE) -> Tier 3 (Science & Mindset: IT/ES) -> Summary. This structure chunks the 6 countries logically based on their approach's scope (League vs. Club vs. Philosophy), making complex policy information easily digestible. Interactive charts support each tier to ground policies in data. -->
+    <!-- Visualization & Content Choices: 
+         1. Core Problem -> Goal: Change -> Line Chart (Chart.js) -> Shows the 'Green Banana' trajectory (Late vs Early bloomer over time). Justification: Clearly illustrates why biological age matters more than chronological age. NO SVG.
+         2. UK System -> Goal: Compare -> Bar Chart (Chart.js) -> Shows %PAH (Predicted Adult Height) bandings. Justification: Explains how players are grouped physically rather than chronologically. NO SVG.
+         3. BE/DE Mix -> Goal: Organize -> Radar Chart (Chart.js) -> Compares traditional vs bio-banded match skill demands. Justification: Visualizes the DFB/Bremen observation that bio-banding shifts focus to technical/tactical skills. NO SVG.
+         4. Spain Load -> Goal: Relationships -> Area Chart (Chart.js) -> Shows inverse relationship between Growth Velocity (PHV) and Training Load. Justification: Visualizes the 'Load Management' concept perfectly. NO SVG.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#1E293B',
+                        teal: '#0D9488',
+                        amber: '#D97706',
+                        light: '#F8FAFC',
+                        slate: '#64748B'
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #F8FAFC;
+            color: #1E293B;
+            scroll-behavior: smooth;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-header {
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(8px);
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(13, 148, 136, 0.2);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="fixed w-full z-50 glass-header border-b border-teal-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <span class="text-2xl">🌍</span>
+                    <span class="font-bold text-white text-lg md:text-xl tracking-tight">유럽 축구 성장관리 리포트</span>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#intro" class="text-sm font-semibold text-slate-300 hover:text-teal-400 transition-colors">문제정의</a>
+                    <a href="#system" class="text-sm font-semibold text-slate-300 hover:text-teal-400 transition-colors">영국·네덜란드</a>
+                    <a href="#protection" class="text-sm font-semibold text-slate-300 hover:text-teal-400 transition-colors">벨기에·독일</a>
+                    <a href="#science" class="text-sm font-semibold text-slate-300 hover:text-teal-400 transition-colors">이탈리아·스페인</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-20 bg-navy text-white px-4 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#0D9488 2px, transparent 2px); background-size: 30px 30px;"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <span class="inline-block py-1 px-4 rounded-full bg-teal-900/50 text-teal-300 border border-teal-700 font-bold text-sm mb-6 tracking-wide">2010년 이후 유럽 6개국 심층 분석</span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+                유럽 축구 선진국은 유소년의<br>
+                <span class="text-amber">'성장 속도'</span>를 어떻게 관리하는가?
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed">
+                "작고 약한 선수는 도태된다"는 과거의 방관적 태도를 버린 유럽.<br>
+                생물학적 성숙도(바이오밴딩) 실무 적용 사례를 통해 한국 축구의 미래를 엿봅니다.
+            </p>
+            <a href="#intro" class="inline-flex items-center justify-center bg-teal-600 hover:bg-teal-500 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all text-lg border border-teal-400">
+                인포그래픽 탐색 ⬇️
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24">
+
+        <section id="intro" class="scroll-mt-24">
+            <div class="bg-white rounded-3xl shadow-xl p-8 border-t-8 border-teal-600">
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold text-navy mb-4">왜 '생물학적 나이'에 주목해야 하는가?</h2>
+                    <p class="text-lg text-slate-600 leading-relaxed">
+                        주민등록상 나이(연령)가 같아도 신체 성장의 시계는 최대 3~4년까지 차이가 납니다. 유럽은 이를 인지하고 조기 성숙 선수의 과부하를 막고, 지연 성숙 선수의 잠재력을 보호하는 방향으로 시스템을 전환했습니다.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                        <h3 class="font-bold text-navy text-center mb-4 text-lg">성장 속도에 따른 잠재력 발현 궤적 (그린 바나나 철학)</h3>
+                        <div class="chart-container">
+                            <canvas id="chart-trajectory"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <ul class="space-y-6">
+                            <li class="flex gap-4">
+                                <div class="w-12 h-12 rounded-full bg-amber text-white flex items-center justify-center text-2xl flex-shrink-0 font-bold">1</div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-navy">조기 성숙의 함정</h4>
+                                    <p class="text-slate-600">초반 체격 우위로 선발되지만, 성인기 이후 기술적 성장 한계에 부딪히기 쉽습니다.</p>
+                                </div>
+                            </li>
+                            <li class="flex gap-4">
+                                <div class="w-12 h-12 rounded-full bg-teal text-white flex items-center justify-center text-2xl flex-shrink-0 font-bold">2</div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-navy">늦성숙(그린 바나나) 보호</h4>
+                                    <p class="text-slate-600">현재 작고 덜 익었을 뿐, 양질의 코칭을 지속 제공하면 최종적으로 더 높은 퍼포먼스에 도달할 수 있습니다.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="system" class="scroll-mt-24">
+            <div class="text-center mb-12">
+                <span class="text-teal-600 font-bold tracking-wider text-sm uppercase">Tier 1. National & League System</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-navy mt-2">국가 및 리그 주도의 강력한 시스템화</h2>
+                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">가장 적극적으로 제도를 뜯어고친 영국(프리미어리그)과 네덜란드(KNVB)의 실무 적용</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-md card-hover border border-slate-200">
+                    <div class="flex items-center gap-4 mb-6">
+                        <span class="text-5xl">🇬🇧</span>
+                        <h3 class="text-2xl font-bold text-navy">영국 (잉글랜드)</h3>
+                    </div>
+                    <p class="text-amber font-bold mb-4">"프리미어리그(EPL) 주도의 표준화와 벤치마킹"</p>
+                    <ul class="space-y-3 text-slate-600 mb-8 list-disc pl-5">
+                        <li><strong>EPPP 편입:</strong> 아카데미 시스템 내 성장/성숙도 스크리닝 의무화</li>
+                        <li><strong>과학적 측정:</strong> 부모 키 기반 예측 성인 신장(%PAH) 활용</li>
+                        <li><strong>토너먼트 운영:</strong> 시즌 중 수차례 바이오밴딩 페스티벌 개최</li>
+                    </ul>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h4 class="font-bold text-sm text-center text-slate-500 mb-2">%PAH(예측 성인신장) 기반 그룹화 예시</h4>
+                        <div class="chart-container" style="height: 200px;">
+                            <canvas id="chart-pah"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-md card-hover border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="text-5xl">🇳🇱</span>
+                            <h3 class="text-2xl font-bold text-navy">네덜란드</h3>
+                        </div>
+                        <p class="text-teal font-bold mb-4">"합법적 하향 출전(생물학적 디스펜세이션)"</p>
+                        <ul class="space-y-3 text-slate-600 mb-8 list-disc pl-5">
+                            <li><strong>2025/26 시즌 공식화:</strong> 리그 규정 자체를 전면 수정</li>
+                            <li><strong>한 살 아래로:</strong> 늦은 성장 급속기 선수에게 하향 연령대 리그 출전 자격 부여</li>
+                            <li><strong>엄격한 검증:</strong> 스포츠 의사/물리치료사 진단 및 인체계측(좌고 등) 필수</li>
+                        </ul>
+                    </div>
+                    <div class="bg-teal-50 border-l-4 border-teal text-teal-900 p-5 rounded-r-lg mt-auto">
+                        <span class="font-bold">KNVB 철학:</span> "생물학적 나이는 선수의 의지로 바꿀 수 없는 자연현상이며, 시스템이 보상해야 발달이 최적화된다."
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="protection" class="scroll-mt-24">
+            <div class="text-center mb-12">
+                <span class="text-amber font-bold tracking-wider text-sm uppercase">Tier 2. Protection & Club Routine</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-navy mt-2">늦성숙 선수의 보호망과 클럽 현장 적용</h2>
+                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">대표팀 이원화와 명문 클럽의 일상적 훈련 혁신을 이끄는 벨기에와 독일</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-navy p-8 rounded-2xl shadow-xl card-hover text-white flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="text-5xl">🇧🇪</span>
+                            <h3 class="text-2xl font-bold text-white">벨기에</h3>
+                        </div>
+                        <p class="text-amber font-bold mb-4">"'그린 바나나'를 기다려주는 평행 경로"</p>
+                        <ul class="space-y-3 text-slate-300 mb-6 list-disc pl-5">
+                            <li><strong>Futures 팀 운영:</strong> U15~U17 대상 늦성숙 선수 전용 대표팀 신설</li>
+                            <li><strong>국제 경험 제공:</strong> 타국 늦성숙 팀들과 이원화된 국제 친선전 진행</li>
+                            <li><strong>재능 보호:</strong> 신체 조건으로 인한 방출 방지, 양질의 코칭 보장</li>
+                        </ul>
+                    </div>
+                    <div class="flex items-center justify-center gap-6 mt-4 p-4 bg-slate-800 rounded-xl">
+                        <div class="text-center">
+                            <div class="text-3xl mb-1">🍌</div>
+                            <div class="text-xs text-slate-400">일반 대표팀</div>
+                        </div>
+                        <div class="text-slate-500 font-bold">VS</div>
+                        <div class="text-center opacity-80">
+                            <div class="text-3xl mb-1">🍏</div>
+                            <div class="text-xs text-green-400">Futures (늦성숙)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-md card-hover border border-slate-200">
+                    <div class="flex items-center gap-4 mb-6">
+                        <span class="text-5xl">🇩🇪</span>
+                        <h3 class="text-2xl font-bold text-navy">독일</h3>
+                    </div>
+                    <p class="text-teal font-bold mb-4">"코치 교육 혁신과 명문 클럽의 '주 1회 재밴딩'"</p>
+                    <ul class="space-y-3 text-slate-600 mb-6 list-disc pl-5">
+                        <li><strong>DFB 필수 교육:</strong> B급 라이선스에 생물학적 나이/바이오밴딩 편입</li>
+                        <li><strong>도르트문트:</strong> U12~U15 대상 주 1회 생물학적 나이 기준 재밴딩 훈련</li>
+                        <li><strong>베르더 브레멘:</strong> 체격 조건 평준화 상태에서 전술/기술 약점 정밀 진단</li>
+                    </ul>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h4 class="font-bold text-sm text-center text-slate-500 mb-2">훈련 중 요구 역량 변화 (일반 vs 바이오밴딩)</h4>
+                        <div class="chart-container" style="height: 220px;">
+                            <canvas id="chart-radar"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="science" class="scroll-mt-24">
+            <div class="text-center mb-12">
+                <span class="text-teal-600 font-bold tracking-wider text-sm uppercase">Tier 3. Science & Mindset</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-navy mt-2">과학적 모니터링과 인식의 전환</h2>
+                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">클럽 단위의 철저한 데이터 추적과 국가적 철학 변화를 주도하는 이탈리아와 스페인</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                <div class="bg-white p-8 rounded-2xl shadow-md card-hover border border-slate-200">
+                    <div class="flex items-center gap-4 mb-6">
+                        <span class="text-5xl">🇮🇹</span>
+                        <h3 class="text-2xl font-bold text-navy">이탈리아</h3>
+                    </div>
+                    <p class="text-amber font-bold mb-4">"공식 기술 담론으로 들어온 생물학적 나이"</p>
+                    <ul class="space-y-3 text-slate-600 list-disc pl-5">
+                        <li><strong>FIGC 연구 확산:</strong> 연맹 기술부 간행물을 통해 바이오밴딩 지속 소개</li>
+                        <li><strong>유소년 철학 변화:</strong> "연령과 생물학적 나이의 차이가 잠재력을 가릴 수 있다" 명시</li>
+                        <li><strong>인식 개선:</strong> 눈에 보이는 현재 피지컬만으로 미래를 재단하지 않도록 지도자 교육</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-md card-hover border border-slate-200">
+                    <div class="flex items-center gap-4 mb-6">
+                        <span class="text-5xl">🇪🇸</span>
+                        <h3 class="text-2xl font-bold text-navy">스페인</h3>
+                    </div>
+                    <p class="text-teal font-bold mb-4">"명문 클럽들의 독자적 '성장 과학화' 추적"</p>
+                    <ul class="space-y-3 text-slate-600 mb-6 list-disc pl-5">
+                        <li><strong>PHV 정밀 추적:</strong> UCAM 무르시아 등, 정기 인체계측으로 최대성장기 예측</li>
+                        <li><strong>분류 및 부하 관리:</strong> 조기/정상/지연 성숙 분류 후 맞춤 훈련 스케줄링</li>
+                    </ul>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h4 class="font-bold text-sm text-center text-slate-500 mb-2">PHV(최대성장기) 진입 시 부하 관리 원칙</h4>
+                        <div class="chart-container" style="height: 200px;">
+                            <canvas id="chart-load"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="scroll-mt-24 pb-12">
+            <div class="bg-gradient-to-br from-navy to-slate-800 text-white rounded-3xl shadow-2xl p-8 md:p-12 border-b-8 border-amber">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-10">한국 유소년 축구를 위한 3가지 시사점</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white/10 backdrop-blur border border-white/20 p-6 rounded-2xl text-center">
+                        <div class="text-4xl mb-4">📈</div>
+                        <h3 class="text-xl font-bold text-amber mb-3">평가 기준의 다변화</h3>
+                        <p class="text-slate-300 text-sm">신체가 작다는 것은 아직 자라지 않은 것일 뿐, 재능이 없는 것이 아닙니다. 장기적 시각의 잠재력 평가가 필수입니다.</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur border border-white/20 p-6 rounded-2xl text-center">
+                        <div class="text-4xl mb-4">🛡️</div>
+                        <h3 class="text-xl font-bold text-amber mb-3">안전을 위한 부하 조절</h3>
+                        <p class="text-slate-300 text-sm">성장이 가장 빠른 시기(PHV)의 강도 높은 훈련은 치명적 부상을 초래합니다. 데이터 기반의 철저한 관리가 요구됩니다.</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur border border-white/20 p-6 rounded-2xl text-center">
+                        <div class="text-4xl mb-4">🔄</div>
+                        <h3 class="text-xl font-bold text-amber mb-3">환경의 창의적 재배치</h3>
+                        <p class="text-slate-300 text-sm">주 1회 체격 기반 그룹화는 작은 아이에게 자신감을, 큰 아이에게 전술적 세밀함을 강제 학습시킵니다.</p>
+                    </div>
+                </div>
+                <div class="mt-12 text-center">
+                    <p class="text-lg font-semibold text-teal-300">
+                        "주민등록상 나이는 행정의 편의일 뿐, 선수의 신체와 재능을 평가하는 절대 기준이 될 수 없습니다."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-navy py-8 text-center border-t border-slate-700">
+        <p class="text-slate-400 text-sm">본 인포그래픽은 2010년 이후 유럽 6개국 바이오밴딩 실무 적용 분석 리포트를 기반으로 제작되었습니다.</p>
+    </footer>
+
+    <script>
+        function wrapLabel(label, maxChars = 16) {
+            if (label.length <= maxChars) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > maxChars) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines.length > 1 ? lines : lines[0];
+        }
+
+        const tooltipConfig = {
+            tooltip: {
+                callbacks: {
+                    title: function(tooltipItems) {
+                        const item = tooltipItems[0];
+                        let label = item.chart.data.labels[item.dataIndex];
+                        if (Array.isArray(label)) {
+                            return label.join(' ');
+                        } else {
+                            return label;
+                        }
+                    }
+                }
+            }
+        };
+
+        const globalFont = { family: "'Pretendard', sans-serif" };
+
+        const trajCtx = document.getElementById('chart-trajectory');
+        const trajLabels = ['U12', 'U14', 'U16', 'U18', 'U20+'].map(l => wrapLabel(l));
+        new Chart(trajCtx, {
+            type: 'line',
+            data: {
+                labels: trajLabels,
+                datasets: [
+                    {
+                        label: '조기 성숙형 (초기 피지컬 우위)',
+                        data: [50, 80, 85, 87, 88],
+                        borderColor: '#D97706', 
+                        borderDash: [5, 5],
+                        borderWidth: 3,
+                        tension: 0.4
+                    },
+                    {
+                        label: '지연 성숙형 (그린 바나나)',
+                        data: [30, 45, 65, 90, 95],
+                        borderColor: '#0D9488', 
+                        borderWidth: 4,
+                        tension: 0.4
+                    }
+                ]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    ...tooltipConfig,
+                    legend: { position: 'top', labels: { font: globalFont } }
+                },
+                scales: {
+                    y: { display: false, min: 0, max: 100 },
+                    x: { ticks: { font: globalFont } }
+                }
+            }
+        });
+
+        const pahCtx = document.getElementById('chart-pah');
+        const pahLabels = ['85% 미만', '85~90%', '90~95%', '95% 이상'].map(l => wrapLabel(l));
+        new Chart(pahCtx, {
+            type: 'bar',
+            data: {
+                labels: pahLabels,
+                datasets: [{
+                    label: '그룹 편성 비율',
+                    data: [15, 35, 35, 15],
+                    backgroundColor: ['#64748B', '#0D9488', '#D97706', '#1E293B'],
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    ...tooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { display: false },
+                    x: { ticks: { font: globalFont }, grid: { display: false } }
+                }
+            }
+        });
+
+        const radarCtx = document.getElementById('chart-radar');
+        const radarLabels = ['스피드/피지컬', '볼 터치/개인기', '전술적 인지', '리더십', '패스 네트워크'].map(l => wrapLabel(l));
+        new Chart(radarCtx, {
+            type: 'radar',
+            data: {
+                labels: radarLabels,
+                datasets: [
+                    {
+                        label: '연령 기반 훈련',
+                        data: [90, 50, 40, 60, 50],
+                        backgroundColor: 'rgba(100, 116, 139, 0.2)',
+                        borderColor: '#64748B',
+                        borderWidth: 2
+                    },
+                    {
+                        label: '바이오밴딩 훈련',
+                        data: [50, 85, 90, 80, 85],
+                        backgroundColor: 'rgba(13, 148, 136, 0.4)',
+                        borderColor: '#0D9488',
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    ...tooltipConfig,
+                    legend: { position: 'bottom', labels: { font: globalFont } }
+                },
+                scales: {
+                    r: {
+                        ticks: { display: false },
+                        pointLabels: { font: globalFont, color: '#1E293B' }
+                    }
+                }
+            }
+        });
+
+        const loadCtx = document.getElementById('chart-load');
+        const loadLabels = ['Pre-PHV', 'Circa-PHV (급성장)', 'Post-PHV'].map(l => wrapLabel(l));
+        new Chart(loadCtx, {
+            type: 'line',
+            data: {
+                labels: loadLabels,
+                datasets: [
+                    {
+                        label: '성장 속도 (cm/년)',
+                        data: [5, 12, 4],
+                        borderColor: '#D97706',
+                        backgroundColor: 'rgba(217, 119, 6, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        yAxisID: 'y'
+                    },
+                    {
+                        label: '권장 훈련 부하 (점프/스프린트)',
+                        data: [80, 40, 90],
+                        borderColor: '#1E293B',
+                        borderDash: [5, 5],
+                        tension: 0.4,
+                        yAxisID: 'y1'
+                    }
+                ]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    ...tooltipConfig,
+                    legend: { position: 'top', labels: { font: globalFont } }
+                },
+                scales: {
+                    y: { display: false, position: 'left' },
+                    y1: { display: false, position: 'right' },
+                    x: { ticks: { font: globalFont } }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
