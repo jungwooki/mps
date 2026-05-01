@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPS 스포츠 검진 차트</title>
+    <!-- 프리텐다드 웹 폰트 적용 -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <style>
+        :root {
+            --primary-color: #1A365D;
+            --text-color: #333333;
+            --gray-text: #4B5563;
+        }
+
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #e5e7eb;
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* A4 사이즈 컨테이너 설정 */
+        .a4-container {
+            width: 210mm;
+            min-height: 297mm;
+            background-color: white;
+            padding: 15mm;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+
+        /* 인쇄 최적화 설정 */
+        @media print {
+            @page {
+                size: A4;
+                margin: 10mm;
+            }
+            body {
+                background-color: white;
+                padding: 0;
+                margin: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .a4-container {
+                box-shadow: none;
+                width: 100%;
+                min-height: auto;
+                padding: 0;
+            }
+            /* 인쇄 시 입력창의 테두리 및 배경색 처리 */
+            input[type="text"] {
+                border-bottom: 1px solid #000 !important;
+            }
+        }
+
+        /* 제목 영역 */
+        .header-title {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .top-info {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        /* 섹션 제목 */
+        .section-title {
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 6px 12px;
+            margin: 15px 0 10px 0;
+        }
+
+        /* 입력 폼 공통 설정 */
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .form-row-between {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .form-label {
+            font-weight: 600;
+        }
+
+        /* 텍스트 입력창 (밑줄 스타일) */
+        input[type="text"] {
+            border: none;
+            border-bottom: 1px solid #666;
+            background: transparent;
+            font-family: inherit;
+            font-size: 14px;
+            padding: 2px 5px;
+            outline: none;
+        }
+        
+        input[type="text"]:focus {
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        /* 체크박스 디자인 */
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            accent-color: var(--primary-color);
+            margin: 0;
+        }
+
+        /* 테이블 (초음파 평가) */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            margin-top: 5px;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            text-align: center;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #f9fafb;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .table-empty-row td {
+            height: 100px; /* 초음파 평가 빈 공간 높이 */
+            vertical-align: top;
+            text-align: left;
+        }
+
+        .w-full { width: 100%; }
+        .flex-grow { flex-grow: 1; }
+        
+        .bullet { font-weight: bold; margin-right: 5px; }
+
+    </style>
+</head>
+<body>
+
+    <div class="a4-container">
+        
+        <!-- 타이틀 영역 -->
+        <div class="header-title">MPS 스포츠 검진 차트</div>
+        
+        <div class="top-info">
+            <div>
+                작성일: 202<input type="text" style="width: 25px;"> 년 
+                <input type="text" style="width: 25px;"> 월 
+                <input type="text" style="width: 25px;"> 일
+            </div>
+            <div>
+                담당의(작성자): <input type="text" style="width: 100px;"> (서명)
+            </div>
+        </div>
+
+        <!-- 1. 기본 정보 -->
+        <div class="section-title">1. 기본 정보</div>
+        <div class="form-row-between">
+            <div><span class="form-label">이름:</span> <input type="text" style="width: 80px;"></div>
+            <div><span class="form-label">차트번호:</span> <input type="text" style="width: 100px;"></div>
+            <div><span class="form-label">생년월일:</span> <input type="text" style="width: 40px;"> 년 <input type="text" style="width: 30px;"> 월 <input type="text" style="width: 30px;"> 일</div>
+        </div>
+        <div class="form-row-between">
+            <div style="flex: 1;"><span class="form-label">소속팀/학교:</span> <input type="text" style="width: 60%;"></div>
+            <div style="flex: 1; text-align: right;"><span class="form-label">주 포지션:</span> <input type="text" style="width: 150px;"></div>
+        </div>
+        <div class="form-row">
+            <span class="form-label">부모 키</span>
+            <span style="margin-left: 10px;">부(父): <input type="text" style="width: 50px;"> cm</span>
+            <span style="margin-left: 20px;">모(母): <input type="text" style="width: 50px;"> cm</span>
+        </div>
+
+        <!-- 2. 과거 병력 및 부상 이력 -->
+        <div class="section-title">2. 과거 병력 및 부상 이력</div>
+        <div class="form-row">
+            <span class="form-label">과거 질환/수술 및 스포츠 손상 이력 (해당 시 모두 체크):</span>
+        </div>
+        <div class="form-row checkbox-group">
+            <label class="checkbox-label"><input type="checkbox"> 없음</label>
+            <label class="checkbox-label"><input type="checkbox"> 질환/수술 이력</label>
+            <label class="checkbox-label"><input type="checkbox"> 뇌진탕</label>
+            <label class="checkbox-label"><input type="checkbox"> 골절</label>
+            <label class="checkbox-label"><input type="checkbox"> 인대 파열/염좌</label>
+            <label class="checkbox-label"><input type="checkbox"> 근육/건 손상</label>
+            <label class="checkbox-label"><input type="checkbox"> 연골 손상</label>
+            <label class="checkbox-label"><input type="checkbox"> 기타</label>
+        </div>
+        <div class="form-row" style="margin-top: 5px;">
+            <span class="form-label">세부사항 (시기 및 병명/다친 부위):</span>
+            <input type="text" class="flex-grow">
+        </div>
+
+        <!-- 3. 현재 신체 상태 -->
+        <div class="section-title">3. 현재 신체 상태</div>
+        <div class="form-row">
+            <span class="form-label">현재 훈련이나 일상생활 중 통증이 있거나 불편한 부위가 있습니까?</span>
+        </div>
+        <div class="form-row checkbox-group">
+            <label class="checkbox-label"><input type="checkbox"> 없음</label>
+            <label class="checkbox-label"><input type="checkbox"> 있음</label>
+            <span>(부위: <input type="text" style="width: 120px;"> / 통증 강도 1~10점 중: <input type="text" style="width: 30px;"> 점)</span>
+        </div>
+        
+        <div class="form-row" style="margin-top: 10px;">
+            <span class="form-label">평소 훈련 후 피로 회복 속도는 어떠한 편입니까?</span>
+        </div>
+        <div class="form-row checkbox-group">
+            <label class="checkbox-label"><input type="checkbox"> 매우 빠름</label>
+            <label class="checkbox-label"><input type="checkbox"> 보통</label>
+            <label class="checkbox-label"><input type="checkbox"> 느림 (다음 날까지 피로가 심하게 남음)</label>
+        </div>
+
+        <div class="form-row" style="margin-top: 10px;">
+            <span class="form-label">수면 및 소화 상태 (컨디션 지표):</span>
+        </div>
+        <div class="form-row checkbox-group">
+            <span class="bullet">· 수면:</span>
+            <label class="checkbox-label"><input type="checkbox"> 푹 잠 (하루 평균 <input type="text" style="width: 30px;"> 시간)</label>
+            <label class="checkbox-label"><input type="checkbox"> 자주 깸/입면 지연</label>
+            <span class="bullet" style="margin-left: 20px;">· 소화:</span>
+            <label class="checkbox-label"><input type="checkbox"> 소화 잘됨</label>
+            <label class="checkbox-label"><input type="checkbox"> 식욕 부진/잦은 체함</label>
+        </div>
+
+        <div class="form-row" style="margin-top: 10px;">
+            <span class="form-label">사춘기 간이 체크리스트:</span>
+        </div>
+        <div class="form-row checkbox-group">
+            <span class="bullet">· 1. 음모 (+겨드랑이 여부):</span>
+            <label class="checkbox-label"><input type="checkbox"> 없음</label>
+            <label class="checkbox-label"><input type="checkbox"> 있음</label>
+            <span class="bullet" style="margin-left: 30px;">· 2. 목소리 변화 (변성기):</span>
+            <label class="checkbox-label"><input type="checkbox"> 없음</label>
+            <label class="checkbox-label"><input type="checkbox"> 있음</label>
+        </div>
+
+        <!-- 4. 기타 참고 사항 -->
+        <div class="section-title">4. 기타 참고 사항</div>
+        <div class="form-row">
+            <span class="form-label">현재 선수가 복용중인 한약, 양약(성장주사 포함)이 있으신가요?</span>
+        </div>
+        <div class="form-row">
+            <input type="text" class="w-full" style="margin-top: 5px;">
+        </div>
+
+        <!-- 5. 초음파 평가 -->
+        <div class="section-title">5. 초음파 평가 (Ultrasound Evaluation)</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>무릎(좌)</th>
+                    <th>무릎(우)</th>
+                    <th>아킬레스(좌)</th>
+                    <th>아킬레스(우)</th>
+                    <th>족저근막(좌)</th>
+                    <th>족저근막(우)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-empty-row">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+</html>

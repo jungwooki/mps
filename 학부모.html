@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPS 성장 데이터 안내지</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <!-- 폰트 적용 -->
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #e5e7eb; /* 화면 미리보기용 배경 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            padding: 2rem;
+            -webkit-print-color-adjust: exact; /* 크롬/사파리 배경색 인쇄 강제 */
+            print-color-adjust: exact;
+        }
+        .a4-paper {
+            width: 21cm;
+            min-height: 29.7cm;
+            background: white;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+        /* 프린트 최적화 */
+        @media print {
+            @page {
+                size: A4 portrait; /* A4 세로 고정 */
+                margin: 0; /* 브라우저 기본 여백(머리글/바닥글) 제거 */
+            }
+            body {
+                background: none;
+                padding: 0;
+                gap: 0;
+            }
+            .a4-paper {
+                box-shadow: none;
+                width: 21cm;
+                height: 29.7cm;
+                page-break-after: always; /* 페이지 넘김 처리 */
+                page-break-inside: avoid;
+            }
+            .a4-paper:last-child {
+                page-break-after: auto;
+            }
+            .no-print {
+                display: none !important; /* 인쇄 시 버튼 등 숨김 */
+            }
+        }
+    </style>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- ==================== [PDF 출력 버튼 (인쇄 시 숨김)] ==================== -->
+    <div class="fixed top-6 right-6 z-50 no-print">
+        <button onclick="window.print()" class="bg-[#0F172A] hover:bg-[#D4AF37] transition-colors duration-300 text-white font-bold py-3 px-6 rounded-full shadow-xl flex items-center gap-2">
+            <i data-lucide="printer" class="w-5 h-5"></i>
+            PDF 출력하기
+        </button>
+    </div>
+
+    <!-- ==================== [PAGE 1] ==================== -->
+    <div class="a4-paper text-[#0F172A]">
+        <!-- 상단 라인 포인트 -->
+        <div class="h-2 w-full bg-[#0F172A]"></div>
+        
+        <div class="px-12 py-10 flex-grow flex flex-col relative">
+            
+            <!-- [상단 영역] -->
+            <header class="mb-8 relative">
+                <!-- 우측 상단 로고 -->
+                <div class="absolute top-0 right-0 text-right mt-2">
+                     <span class="font-black text-3xl italic tracking-tighter text-[#0F172A]">mps<br>
+                     <span class="text-[11px] text-gray-400 not-italic tracking-widest leading-none block mt-[-2px]">SPORTS</span></span>
+                </div>
+
+                <div class="inline-block px-4 py-1.5 bg-[#F5F5F5] text-[#D4AF37] font-bold rounded-full text-[13px] mb-5 tracking-wide uppercase mt-2">
+                    MPS Sports Science x Sports korean Medicine
+                </div>
+                <h1 class="text-[32px] font-bold leading-snug tracking-tight mb-5 text-[#0F172A]">
+                    오늘 우리 아이의 <br>
+                    <span class="text-[#D4AF37]">멘탈, 피지컬, 성장단계 데이터</span>를<br>
+                    점검했습니다.
+                </h1>
+                <p class="text-[18px] text-gray-500 font-medium leading-relaxed">
+                    결과는 고정된 값이 아닌,<br>
+                    아이의 선수로서의 현재 <strong class="text-[#0F172A]">성장 방향을 보여주는 나침반</strong>입니다.
+                </p>
+            </header>
+
+            <!-- [중앙 1 – 진행 상태 시각화] -->
+            <section class="bg-[#F5F5F5] rounded-2xl p-7 mb-8">
+                <div class="flex items-center justify-between relative px-4">
+                    <!-- Progress Line -->
+                    <div class="absolute top-1/2 left-8 right-8 h-1 bg-gray-300 -translate-y-1/2 z-0"></div>
+                    <div class="absolute top-1/2 left-8 w-[40%] h-1 bg-[#0F172A] -translate-y-1/2 z-0"></div>
+
+                    <!-- Step 1 -->
+                    <div class="relative z-10 flex flex-col items-center gap-3 bg-[#F5F5F5] px-2">
+                        <div class="w-8 h-8 rounded-full bg-[#0F172A] border-4 border-[#F5F5F5] flex items-center justify-center">
+                            <i data-lucide="check" class="text-white w-4 h-4"></i>
+                        </div>
+                        <div class="text-center">
+                            <p class="font-bold text-[#0F172A] text-[13px]">데이터 점검</p>
+                            <p class="text-[11px] text-gray-500">오늘</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative z-10 flex flex-col items-center gap-3 bg-[#F5F5F5] px-2">
+                        <div class="relative flex h-8 w-8 items-center justify-center">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4AF37] opacity-40"></span>
+                          <div class="relative inline-flex w-8 h-8 rounded-full bg-[#D4AF37] border-4 border-[#F5F5F5]"></div>
+                        </div>
+                        <div class="text-center">
+                            <p class="font-bold text-[#D4AF37] text-[13px]">정밀 분석 중</p>
+                            <p class="text-[11px] text-[#D4AF37]">전문가 종합 판단</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative z-10 flex flex-col items-center gap-3 bg-[#F5F5F5] px-2">
+                        <div class="w-8 h-8 rounded-full bg-white border-4 border-gray-300"></div>
+                        <div class="text-center">
+                            <p class="font-bold text-gray-400 text-[13px]">리포트 제공</p>
+                            <p class="text-[11px] text-gray-400">4~7일 후(주말제외)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- [중앙 2 – S, P, M 상세 설명] -->
+            <section class="flex-grow">
+                <h2 class="text-[20px] font-bold mb-5 flex items-center gap-2">
+                    <i data-lucide="clock" class="text-[#D4AF37] w-5 h-5"></i>
+                    왜 결과 분석에 시간이 필요할까요?
+                </h2>
+                <div class="grid grid-cols-1 gap-4">
+                    
+                    <!-- S 성장 단계 분석 -->
+                    <div class="flex items-start gap-4 p-5 rounded-xl border border-gray-100 bg-white shadow-sm">
+                        <div class="p-2.5 bg-blue-50 text-blue-600 rounded-xl shrink-0">
+                            <h3 class="font-bold text-lg leading-none">S</h3>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-[17px] mb-2 text-[#0F172A]">성장 단계 분석</h3>
+                            <p class="text-gray-600 text-[14.5px] leading-[1.6]">
+                                단순한 키, 체중 비교가 아닙니다. 뼈나이(Bone Age)와 생물학적 나이를 통해 우리 아이만의 <strong>현재 성장단계(급성장 이전, 급성장기, 급성장 후반기 등)</strong>에 대해 파악합니다.
+                            </p>
+                            <p class="text-gray-400 text-[13px] leading-[1.5] mt-2 bg-gray-50 p-2.5 rounded-lg">
+                                * 잉글랜드, 네덜란드, 벨기에, 독일, 스페인 등 축구 선진국에서는 바이오밴딩(Bio-banding)이라는 이름으로 성장기 선수의 뼈나이를 주기적(2주~12주 단위)으로 안전하게 측정하고 있습니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- P 피지컬 위험도 평가 -->
+                    <div class="flex items-start gap-4 p-5 rounded-xl border border-gray-100 bg-white shadow-sm">
+                        <div class="p-2.5 bg-red-50 text-red-600 rounded-xl shrink-0">
+                            <h3 class="font-bold text-lg leading-none">P</h3>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-[17px] mb-2 text-[#0F172A]">피지컬 위험도 평가</h3>
+                            <p class="text-gray-600 text-[14.5px] leading-[1.6]">
+                                미국, 한일 스포츠한의학을 기반으로 훈련 부하와 연관된 <strong>구조적, 기능적 부상 위험과 피로도</strong>를 정밀하게 점검합니다.<br>
+                                OTS(과부하증후군), RED-s(상대적성장에너지결핍증), 스포츠한의학의 허증(虛證)의 기본 개념을 바탕으로 분석합니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- M 스포츠 멘탈 평가 -->
+                    <div class="flex items-start gap-4 p-5 rounded-xl border border-gray-100 bg-white shadow-sm">
+                        <div class="p-2.5 bg-amber-50 text-amber-600 rounded-xl shrink-0">
+                            <h3 class="font-bold text-lg leading-none">M</h3>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-[17px] mb-2 text-[#0F172A]">스포츠 멘탈 평가</h3>
+                            <p class="text-gray-600 text-[14.5px] leading-[1.6]">
+                                잉글랜드, 네덜란드에서 개발된 전 세계 <strong>유소년 엘리트 스포츠 선수 심리 평가 방식</strong>에 근거합니다. 아이의 심리적 상태를 전문가가 다각도로 종합 판단합니다.
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <!-- 하단 강조 박스 -->
+            <div class="mt-8 text-center bg-[#0F172A] p-5 rounded-xl text-white">
+                <i data-lucide="quote" class="w-6 h-6 mx-auto mb-2 text-[#D4AF37] opacity-60"></i>
+                <p class="text-[15px] font-medium leading-[1.6]">
+                    "현재 평가는 1회차로, 고정된 값이 아닙니다.<br>
+                    <span class="text-[#D4AF37]">2~3개월에 1회 주기적으로 평가</span>하는 것이<br>유럽 축구 선진국 표준입니다."
+                </p>
+            </div>
+            
+        </div>
+    </div>
+
+
+    <!-- ==================== [PAGE 2] ==================== -->
+    <div class="a4-paper text-[#0F172A] flex flex-col justify-between">
+        
+        <!-- 상단 라인 포인트 -->
+        <div class="h-2 w-full bg-[#D4AF37]"></div>
+
+        <div class="px-12 pt-10 pb-6 flex-grow flex flex-col">
+            
+            <!-- [기대감 영역] -->
+            <section class="mb-8 relative">
+                <!-- 우측 상단 로고 (2페이지) -->
+                <div class="absolute top-0 right-0 text-right mt-1">
+                     <span class="font-black text-2xl italic tracking-tighter text-gray-200">mps<br>
+                     <span class="text-[9px] text-gray-200 not-italic tracking-widest leading-none block mt-[-2px]">SPORTS</span></span>
+                </div>
+
+                <h2 class="text-[#0F172A] font-bold text-[28px] mb-8 leading-tight">
+                    <span class="text-[#D4AF37]">4~5일 후,</span><br>
+                    부모님께서는 다음에 대해 확인하실 수 있습니다.
+                </h2>
+                
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4 p-5 bg-[#F8FAFC] border border-gray-200 rounded-2xl">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm shrink-0">
+                            <i data-lucide="trending-up" class="w-5 h-5 text-[#0F172A]"></i>
+                        </div>
+                        <p class="text-[17px] font-semibold text-gray-800">
+                            우리 아이의 생물학적 <span class="text-[#D4AF37]">성장 속도 위치</span>
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-5 bg-[#F8FAFC] border border-gray-200 rounded-2xl">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm shrink-0">
+                            <i data-lucide="activity" class="w-5 h-5 text-[#0F172A]"></i>
+                        </div>
+                        <p class="text-[17px] font-semibold text-gray-800">
+                            현재 상태에서의 숨겨진 <span class="text-[#D4AF37]">부상 위험 신호</span>
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-5 bg-[#F8FAFC] border border-gray-200 rounded-2xl">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm shrink-0">
+                            <i data-lucide="target" class="w-5 h-5 text-[#0F172A]"></i>
+                        </div>
+                        <p class="text-[17px] font-semibold text-gray-800">
+                            지금 상태에 알맞은 <span class="text-[#D4AF37]">팀 이외의 개인훈련강도(상대적과부하)</span>
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-5 bg-[#F8FAFC] border border-gray-200 rounded-2xl">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm shrink-0">
+                            <i data-lucide="compass" class="w-5 h-5 text-[#0F172A]"></i>
+                        </div>
+                        <p class="text-[17px] font-semibold text-gray-800">
+                            앞으로 기대할 수 있는 <span class="text-[#D4AF37]">성장 가능성 흐름</span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 철학 텍스트 -->
+            <section class="mt-auto mb-6 text-center">
+                <div class="inline-block relative">
+                    <i data-lucide="quote" class="absolute -top-4 -left-6 w-8 h-8 text-[#D4AF37] opacity-20"></i>
+                    <p class="text-[22px] font-bold leading-relaxed text-[#0F172A]">
+                        "감에 의존하지 않습니다,<br>
+                        변화하는 아이의 상태를<br>
+                        <span class="text-[#D4AF37]">선진 데이터를 기반으로 응원합니다.</span>"
+                    </p>
+                    <i data-lucide="quote" class="absolute -bottom-4 -right-6 w-8 h-8 text-[#D4AF37] opacity-20 rotate-180"></i>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- [하단 Footer] -->
+        <div class="bg-[#F8FAFC] border-t border-gray-200 mt-auto">
+            <div class="px-12 pt-8 pb-5">
+                
+                <div class="bg-white p-5 rounded-xl border border-gray-200 flex flex-col gap-2">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="message-circle" class="w-5 h-5 text-[#D4AF37] mt-0.5 shrink-0"></i>
+                        <p class="font-bold text-[#0F172A] text-[14.5px]">
+                            결과 분석이 완료되면, 카카오톡 혹은 개인 리포트를 통해 개별 안내드리며, 개별 진료상담 문의는 각 센터로 문의주세요. 
+                        </p>
+                    </div>
+                    <div class="flex items-start gap-3 pl-8">
+                        <p class="text-[13px] text-gray-500 font-medium">
+                            (추후 개발 중인 MPS 앱을 통해 데이터를 지속적으로 확인하실 수 있습니다.)
+                        </p>
+                    </div>
+                </div>
+
+                <!-- [추가된 문의처 및 연계 의료기관 정보] -->
+                <div class="mt-6 pt-5 border-t border-gray-200">
+                    <ul class="text-[13px] text-gray-600 space-y-3 font-medium">
+                        <li class="flex items-start gap-3">
+                            <span class="font-bold text-[#0F172A] min-w-[90px]">MPS팀장</span>
+                            <span>010.3881.3610</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="font-bold text-[#0F172A] min-w-[90px]">연계 의료기관<br>(서울 신도림)</span>
+                            <span class="leading-relaxed">서울시 구로구 새말로 97 신도림역 테크노마트 2층 해온한의원<br>010.8740.3610 (카카오톡)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="font-bold text-[#0F172A] min-w-[90px]">연계 의료기관<br>(경기 화성동탄)</span>
+                            <span class="leading-relaxed">경기도 화성시 동탄반석로 196 아이프라자 405호<br>031-8015-5358</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- [추가된 의료법 관련 고지사항] -->
+            <div class="px-12 pb-5 text-[10.5px] text-gray-400 leading-[1.6] break-keep">
+                본 출력물은 juniorgoldenage의 데이터 시각화 리포트입니다. (주)주니어골든에이지는 의료법상 의료행위를 직접 수행하지 않으며, 제휴 의료기관의 검사 결과를 바탕으로 보기 쉬운 형태로 전달하는 역할을 수행합니다. 의학적 판단 및 진단은 반드시 의료진을 통해 확인해야 합니다.
+            </div>
+
+            <div class="bg-[#0F172A] py-4 text-center text-white/50 text-[12px] tracking-widest">
+                MPS SPORTS SCIENCE × K-MEDI
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Lucide 아이콘 렌더링 -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
